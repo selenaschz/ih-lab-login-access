@@ -10,10 +10,13 @@ module.exports.create = (req, res, next) => {
   // 3. create session
   // 4. send session id in a cookie
 
+  res.header("Set-Cookie", "session_id=12345");
+
   res.json({ message: "TO DO!" });
 };
 
 module.exports.destroy = (req, res, next) => {
   // access current request session. remove and send 204 status
+
   res.status(204).send();
 };

@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { profile } from "../../services/api-service";
+import { login, profile } from "../../services/api-service";
 
 export default function Home() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    profile().then(setUser);
+    login({ email: "user@example", password: "123456" }).then(() => {
+      profile().then(setUser);
+    });
   }, []);
 
   return (
