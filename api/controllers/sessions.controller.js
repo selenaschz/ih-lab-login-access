@@ -18,12 +18,16 @@ module.exports.create = (req, res, next) => {
                 })
                 .catch(next)
             } else {
-              next(createError(401, "bad credentials (wrong password)"))
+              res.status(401).json({
+                errors: {password: "Wrong password"}
+              })
             }
           })
           .catch(next);
       } else {
-        next(createError(401, "bad credentials (user not found)"))
+        res.status(401).json({
+          errors: {email: "bad credentials (user not found)"}
+        })
       }
     })
     .catch(next)

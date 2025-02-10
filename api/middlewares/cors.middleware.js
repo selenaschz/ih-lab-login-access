@@ -4,7 +4,7 @@ module.exports = (req, res, next) => {
     process.env.CORS_ORIGIN || "http://localhost:5173"
   );
 
-  res.header("Access-Control-Allow-Headers", "content-type");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
 
   res.header("Access-Control-Allow-Credentials", true);
 
